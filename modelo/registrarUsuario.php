@@ -26,7 +26,7 @@
             echo "<script>window.location.href = 'loginyregis.php';</script>";
         }else {
             //Si no existe un usuario con las caracteristicas anteriores
-            $consulta = "INSERT INTO usuario (nombre, aPaterno, aMaterno, correo, contrasena, telefono, fechaNacimiento) VALUES ('$nombre', '$aPaterno', '$aMaterno', '$correo', '$contrasena', '$telefono', '$fechaNacimiento')";
+            $consulta = "INSERT INTO Usuario (nombre, aPaterno, aMaterno, Correo, Contrasena, Telefono, fechaNacimiento) VALUES ('$nombre', '$aPaterno', '$aMaterno', '$correo', '$contrasena', '$telefono', '$fechaNacimiento')";
             $resultado = $conexion ->query($consulta);
 
             if($conexion->query($consulta)===TRUE){

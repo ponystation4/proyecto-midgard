@@ -10,7 +10,7 @@
         die(json_encode(['success' => false, 'message' => 'La conexion falló: '. $conexion->connect_error]));
     }
 
-    $sql = "SELECT * FROM usuario WHERE correo = '$vcorreo'";
+    $sql = "SELECT * FROM Usuario WHERE Correo = '$vcorreo'";
     $result = $conexion->query($sql);
 
     $inputStyle = isset($_SESSION['message'])?'border: solid 1px red;' : '';
@@ -46,6 +46,6 @@
 
 // Cerrar la conexión
 $conexion->close();
-?>
+
 
 
