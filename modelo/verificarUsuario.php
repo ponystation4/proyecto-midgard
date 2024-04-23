@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $config = require_once __DIR__ . '/../config.php';
+    $config = require_once __DIR__ . '/../../config.php';
     $conexion = new mysqli($config['servername'], $config['username'], $config['password'], $config['database']);
 
     $vcorreo = isset($_POST['correo'])? $_POST['correo'] : "";

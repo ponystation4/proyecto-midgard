@@ -1,7 +1,7 @@
 <?php
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $config = require_once __DIR__ . '/../config.php';
+        $config = require_once __DIR__ . '/../../config.php';
         $conexion = new mysqli($config['servername'], $config['username'], $config['password'], $config['database']);
 
         if($conexion->connect_error){
@@ -12,7 +12,7 @@
         $aPaterno = $_POST['aPaterno'];
         $aMaterno = $_POST['aMaterno'];
         $correo = $_POST['correo'];
-        $contrasena = $_POST['contrasena'];
+        $contraseña = password_hash($_POST['contraseña'], PASSWORD_DEFAULT);
         $telefono = $_POST['telefono'];
         $fechaNacimiento = $_POST['fechaNacimiento'];
 
