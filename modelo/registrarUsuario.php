@@ -1,7 +1,7 @@
 <?php
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $config = require_once __DIR__ . '/../../config.php';
+        $config = require_once __DIR__ . '/../config.php';
         $conexion = new mysqli($config['servername'], $config['username'], $config['password'], $config['database']);
 
         if($conexion->connect_error){
