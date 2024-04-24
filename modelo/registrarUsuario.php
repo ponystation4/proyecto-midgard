@@ -1,7 +1,7 @@
 <?php
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $config = require_once __DIR__ . '/../config.php';
+        $config = require __DIR__ . '/../config.php';
         $conexion = new mysqli($config['servername'], $config['username'], $config['password'], $config['database']);
 
         if($conexion->connect_error){
@@ -12,13 +12,13 @@
         $aPaterno = $_POST['aPaterno'];
         $aMaterno = $_POST['aMaterno'];
         $correo = $_POST['correo'];
-        $contraseña = password_hash($_POST['contraseña'], PASSWORD_DEFAULT);
+        $contrasena = password_hash($_POST['contrasena'], PASSWORD_DEFAULT);
         $telefono = $_POST['telefono'];
         $fechaNacimiento = $_POST['fechaNacimiento'];
 
         //Verificamos si ya existe un usuario con las caracteristicas anteriores
 
-        $consulta = "SELECT correo FROM usuario WHERE correo = '$correo'";
+        $consulta = "SELECT Correo FROM Usuario WHERE correo = '$correo'";
         $resultado = $conexion ->query($consulta);
 
         if($resultado->num_rows > 0) {
@@ -26,7 +26,7 @@
             echo "<script>window.location.href = 'loginyregis.php';</script>";
         }else {
             //Si no existe un usuario con las caracteristicas anteriores
-            $consulta = "INSERT INTO Usuario (nombre, aPaterno, aMaterno, Correo, Contrasena, Telefono, fechaNacimiento) VALUES ('$nombre', '$aPaterno', '$aMaterno', '$correo', '$contrasena', '$telefono', '$fechaNacimiento')";
+            $consulta = "INSERT INTO Usuario (Nombre, aPaterno, aMaterno, Correo, Contrasena, Telefono, FchNacimiento) VALUES ('$nombre', '$aPaterno', '$aMaterno', '$correo', '$contrasena', '$telefono', '$fechaNacimiento')";
             $resultado = $conexion ->query($consulta);
 
             if($conexion->query($consulta)===TRUE){
